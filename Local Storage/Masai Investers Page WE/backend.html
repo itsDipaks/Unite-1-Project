@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <STYle>
+            form{
+                  width: 80%;
+                  margin: auto;
+                  margin-top: 10px;
+                  margin-bottom: 20px;
+            }
+            form>input{
+                  width: 100%;
+                  margin-top: 10px;
+                  padding: 5px;
+                  
+            }
+            h2,h3{
+                   text-align: center;
+            }
+            
+            div{
+                 
+                  display: inline-block;
+                  align-items: center;
+                  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+                  margin-top: 20px;
+                  padding: 10px;
+                  /* margin-top: 100px; */
+                  margin-left: 45.5%;
+                  background-color: rgb(150, 231, 245);
+                  border-radius: 10px
+            }
+           div>a{
+            text-decoration: none;
+            color:black
+            }
+            div>a:hover{
+                  color: red;
+            }
+      </STYle>
+</head>
+<body>
+      <h2>BackEnd</h2>
+      <h3>Enter Data Here</h3>
+      <form id="investerform">
+           <input id="img" type="text" placeholder="Enter Image URL">
+           <input id="name" type="text" placeholder="Enter Name">
+           <input id="pose" type="text" placeholder="Enter Position ">
+           <input id="logo" type="text" placeholder="Enter Logo URL">
+           <input type="submit" >
+      </form>
+<div>
+      <a href="frontend.html"> Show Result</a>
+</div>
+     
+</body>
+</html>
+<script>
+       document.querySelector("#investerform").addEventListener("submit",myinvester)
+      //  var investerdata=[]
+       var invetsterarr=JSON.parse(localStorage.getItem("investerdata")) || []
+
+       function myinvester(){
+             event.preventDefault();
+
+             objinvester={
+                   InvesterImg:investerform.img.value,
+                   InvesterName:investerform.name.value,
+                   InvesterPosition:investerform.pose.value,
+                   InvesterLogo:investerform.logo.value,
+
+             }
+
+             invetsterarr.push(objinvester)
+             
+             localStorage.setItem("investerdata",JSON.stringify(invetsterarr))
+            //  localStorage.clear()
+       } 
+     
+</script>

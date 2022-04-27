@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <style>
+            *{
+                  font-family: sans-serif;
+            }
+            #container>div{
+                     width: 30%;
+                     height:auto ;
+                     margin: 20px;
+                     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                     text-align: center;
+                     margin: auto;
+                     /* padding-top: 20px; */
+                     margin-top: 20px;
+                     border-radius: 10px;
+      }
+      img:nth-child(1){
+            height: 290px;
+            width: 90%;
+            padding-top: 10px;
+            margin-bottom: -10px;
+            /* padding: 20px; */
+      }
+      img:last-child{
+            height: 40px;
+            width: 50%;
+            padding: 20px;
+      }
+      h3{
+            /* color: red; */
+            font-size: 16px;
+            
+      }
+      p{
+            font-size: 14px;
+            /* font-weight: 800; */
+            margin: -10px ;
+      }
+      h1,h2{
+            text-align: center;
+      }
+      </style>
+
+      
+</head>
+<body>
+      <h2>FrontEnd</h2>
+      <h1>Our Investers</h1>
+      <div id="container">
+
+      </div>
+</body>
+</html>
+<script>
+var invetsterarr=JSON.parse(localStorage.getItem("investerdata")) 
+console.log(invetsterarr)
+
+invetsterarr.forEach(function(elm){
+      var box= document.createElement("div");
+
+      var invester_av=document.createElement("img");
+      invester_av.setAttribute("src",elm.InvesterImg)
+
+      var invester_name=document.createElement("h3");
+      invester_name.innerText=elm.InvesterName;
+
+      var invester_role=document.createElement("p")
+      invester_role.innerText=elm.InvesterPosition;
+
+      var invester_logo=document.createElement("img");
+      invester_logo.setAttribute("src",elm.InvesterLogo)
+
+      box.append(invester_av,invester_name,invester_role,invester_logo)
+      document.querySelector("#container").append(box);
+})
+</script>
