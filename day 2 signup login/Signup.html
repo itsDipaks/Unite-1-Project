@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SignUp </title>
+      <link rel="stylesheet" href="signup.css">
+      
+</head>
+<body>
+      
+   
+       
+       
+      <form id="form1">
+         <div id="logo1"> <img src="https://scontent.fnag4-2.fna.fbcdn.net/v/t39.30808-6/279372585_3140500176224864_2974892426289559923_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=1DeyjnMFU9gAX9NWXhU&_nc_ht=scontent.fnag4-2.fna&oh=00_AT_D4GRU_Q2qlZdvE1IsvqaZDC2N7sanlbhbG0up6XTPHA&oe=627327EF" alt=""></div>
+         <p>Enter Full Name:</p>
+         <input id="na" placeholder="Enter Name" type="text">
+        <p>Enter Email Address:</p>
+         <input id="em" placeholder="Enter Email" type="email">
+        <p>Enter Mobile Number:</p>
+         <input id="nu" placeholder="Enter Mobile No" type="number">
+        <p>Enter Passward:</p>       
+         <input id="pa" placeholder="Enter Passward" type="password">
+         <!-- <div class="tacbox">
+            <input id="checkbox" type="checkbox" />
+            <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+          </div> -->
+         
+         <input id="submit" type="submit" value="Sign Up">
+         <div>Already Have Account ?<a href="login.html">.  Log In</a></div>
+
+      </form>
+</body>
+</html>
+<script>
+      document.querySelector("#form1").addEventListener("submit",savefunction)
+      function savefunction(){
+            
+            event.preventDefault()
+         var dataobj={
+                  name:form1.na.value,
+                  email:form1.em.value,
+                  number:form1.nu.value,
+                  pass:form1.pa.value
+          }
+          localStorage.setItem("Persondata",JSON.stringify(dataobj))
+          window.location.href="login.html"
+
+      }
+</script>

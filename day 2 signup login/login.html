@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Log In</title>
+      <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <form id="form2">
+          <h2>Welcome Back</h2>
+          <p>Enter Email :</p>
+          <input id="em1" placeholder="Enter Email" type="email">
+         <p>Enter Passward :</p>
+          <input id="pass1" placeholder="Enter Passward" type="password">
+          <input id="log" type="submit" value="Log In">
+          <div id="new">Need An Account ?  <a href="signup.html"> Create Account Here!</a></div>
+    </form>
+</body>
+</html>
+<script>
+ var savedata=JSON.parse( localStorage.getItem("Persondata"))
+
+document.querySelector("#form2").addEventListener("submit",loginfunction)
+function loginfunction(){
+      event.preventDefault()
+      logindataobject={
+            email2:form2.em1.value,
+            pass2:form2.pass1.value
+      }
+      
+      if(savedata==null)
+      {
+            alert("Please Create Account")
+      }
+      else if(savedata.email==logindataobject.email2 && savedata.pass==logindataobject.pass2)
+      {
+            alert("Login Sucessful")
+          
+           localStorage.setItem("logindata",JSON.stringify(logindataobject))
+      }
+      else{
+            alert("User Does Not Exist")
+      }
+      
+      
+      
+
+}
+
+</script>
